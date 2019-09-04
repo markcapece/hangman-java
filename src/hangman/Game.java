@@ -14,9 +14,12 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
+	// Dictionary and score filepaths
 	final static String DICT_PATH = "./src/hangman/customdictionary.txt";
 	final static File DICT_FILE = new File(DICT_PATH);
 	final static String SCORE_PATH = "./src/hangman/scores.txt";
+	
+	// Initialize variables
 	public ArrayList<Character> guessed_letters = new ArrayList<>();
 	public int number_of_misses = 0;
 	public int game_state = 0;
@@ -26,14 +29,14 @@ public class Game {
 	private String hidden = new String();
 	Scanner input = new Scanner(System.in);
 	
-	// Initialize Game
+	// Constructor
 	Game() throws FileNotFoundException{
 		this.correct = get_word(DICT_FILE);
 		this.hidden = hide_word(this.correct);
 		toggle_state();
 	}
 	
-	// Turn game on or off
+	// Turn game on (1) or off (0)
 	private void toggle_state() {
 		if (this.game_state == 0) {
 			this.game_state = 1;
@@ -118,16 +121,17 @@ public class Game {
 			}
 		}
 	
-	// Access hidden word from main
+	// Hidden word getter
 	public String return_hidden() {
 		return this.hidden;
 	}
 	
-	// Access correct answer from main
+	// Correct answer getter
 	public String return_correct() {
 		return this.correct;
 	}
 	
+	// Append score to scores.txt
 	public void record_score() {
 		try(FileWriter fw = new FileWriter(SCORE_PATH, true);
 				BufferedWriter bw = new BufferedWriter(fw);
