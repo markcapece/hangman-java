@@ -14,11 +14,9 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
-//	final static String DICT_PATH = "./src/hangman/customdictionary.txt";
-	final static String DICT_PATH = "/home/mcapece/eclipse-workspace/hangman/src/hangman/customdictionary.txt";
+	final static String DICT_PATH = "./src/hangman/customdictionary.txt";
 	final static File DICT_FILE = new File(DICT_PATH);
-//	final static String SCORE_PATH = "./src/hangman/scores.txt";
-	final static String SCORE_PATH = "/home/mcapece/eclipse-workspace/hangman/src/hangman/scores.txt";
+	final static String SCORE_PATH = "./src/hangman/scores.txt";
 	public ArrayList<Character> guessed_letters = new ArrayList<>();
 	public int number_of_misses = 0;
 	public int game_state = 0;
